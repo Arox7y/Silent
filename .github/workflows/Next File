@@ -1,0 +1,20 @@
+package com.silenttiers.client;
+
+import com.silenttiers.client.command.SilentTiersCommand;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+
+public class SilentTiersClient implements ClientModInitializer {
+
+    @Override
+    public void onInitializeClient() {
+        System.out.println("[Silent Tiers] Mod loaded!");
+
+        // Register /silenttiers and /st commands
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            SilentTiersCommand.register(dispatcher);
+        });
+
+        System.out.println("[Silent Tiers] Commands registered: /silenttiers, /st");
+    }
+}
