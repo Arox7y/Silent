@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "silenttiers",
+  "version": "${version}",
+  "name": "Silent Tiers",
+  "description": "Shows player tiers from Silent Tiers / MCTiers",
+  "authors": ["Arox7y"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.silenttiers.client.SilentTiersClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "fabric-api": "*",
+    "minecraft": "~1.21.1",
+    "java": ">=21"
+  }
+}
