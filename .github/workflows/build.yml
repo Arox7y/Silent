@@ -18,11 +18,12 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Build with Gradle
+      - name: Install Gradle
         run: |
-          export JAVA_HOME=$JAVA_HOME_21_X64
-          chmod +x gradlew
-          ./gradlew build --no-daemon
+          wget -q https://services.gradle.org/distributions/gradle-8.8-bin.zip
+          unzip -q gradle-8.8-bin.zip
+          export PATH=$PWD/gradle-8.8/bin:$PATH
+          gradle build --no-daemon
         env:
           JAVA_HOME: ${{ env.JAVA_HOME_21_X64 }}
 
