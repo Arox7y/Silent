@@ -18,17 +18,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Install Gradle
+      - name: Build
         run: |
           wget -q https://services.gradle.org/distributions/gradle-8.8-bin.zip
           unzip -q gradle-8.8-bin.zip
-          export PATH=$PWD/gradle-8.8/bin:$PATH
-          gradle build --no-daemon
-        env:
-          JAVA_HOME: ${{ env.JAVA_HOME_21_X64 }}
-
-      - name: Upload JAR
-        uses: actions/upload-artifact@v4
-        with:
-          name: silent-tiers-mod
-          path: build/libs/*.jar
+          ./gradle-8.8/bin/gradle build --no-daemon
